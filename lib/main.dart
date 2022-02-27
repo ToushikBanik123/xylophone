@@ -8,6 +8,22 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$number.wav');
   }
+  Expanded buildKey({ required Color color,required int soundNumber}){
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.all(16.0),
+          primary: Colors.white,
+          backgroundColor: color,
+          textStyle: const TextStyle(fontSize: 20),
+        ),
+        onPressed: (){
+          playSound(soundNumber);
+        },
+        child: const Text('Click me'),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,98 +33,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: TextButton(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(16.0),
-                  primary: Colors.white,
-                  backgroundColor: Colors.red,
-                  textStyle: const TextStyle(fontSize: 20),
-                ),
-                onPressed: (){
-                  playSound(1);
-                },
-                child: const Text('click me'),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.orange,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(2);
-                  },
-                  child: const Text('click me'),),
-              ),
-              Expanded(
-                child: TextButton( 
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.yellow,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(3);
-                  },
-                  child: const Text('click me'),),
-              ),
-              Expanded(
-                child: TextButton( 
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.green,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(4);
-                  },
-                  child: const Text('click me'),),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.teal,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(5);
-                  },
-                  child: const Text('click me'),),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.blue,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(6);
-                  },
-                  child: const Text('click me'),),
-              ),
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.all(16.0),
-                    primary: Colors.white,
-                    backgroundColor: Colors.purple,
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: (){
-                    playSound(7);
-                  },
-                  child: const Text('click me'),),
-              ),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange,soundNumber: 2),
+              buildKey(color: Colors.yellow,soundNumber: 3),
+              buildKey(color: Colors.green,soundNumber: 4),
+              buildKey(color: Colors.teal,soundNumber: 5),
+              buildKey(color: Colors.blue,soundNumber: 6),
+              buildKey(color: Colors.purple,soundNumber: 7),
             ],
 
         ),
